@@ -22,7 +22,7 @@ class SingleFileOutputValidator(FileOutputValidator):
         logging.info("Output folder: %s", full_dir)
 
         if not os.path.isdir(full_dir):
-            return self.valid
+            return not self.expected_content
 
         listing = listdir(full_dir)
         if listing:
@@ -40,5 +40,7 @@ class SingleFileOutputValidator(FileOutputValidator):
 
                 if self.expected_content in contents:
                     self.valid = True
+        elif not self.expected_content:
+            self.valid = True
 
         return self.valid
