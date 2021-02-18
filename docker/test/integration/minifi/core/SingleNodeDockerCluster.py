@@ -213,7 +213,7 @@ class SingleNodeDockerCluster(Cluster):
         dockerfile = dedent("""FROM {base_image}
                 COPY mosquitto_test.conf /mosquitto/data/mosquitto_test.conf
                 CMD ["/usr/sbin/mosquitto", "--verbose", "--config-file", "/mosquitto/data/mosquitto_test.conf"]
-                """.format(base_image='eclipse-mosquitto'))
+                """.format(base_image='eclipse-mosquitto:1.6.12'))
 
         conf_path = self.test_dir + '/resources/mqtt_broker/mosquitto_test.conf'
 
