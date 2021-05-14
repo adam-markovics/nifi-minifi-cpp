@@ -34,7 +34,7 @@
 class VerifyInvokeHTTP : public HTTPIntegrationBase {
  public:
   VerifyInvokeHTTP()
-      : HTTPIntegrationBase(6000) {
+      : HTTPIntegrationBase(std::chrono::seconds(6)) {
   }
 
   void testSetup() override {

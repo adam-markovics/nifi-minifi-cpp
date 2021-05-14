@@ -32,7 +32,6 @@ UnorderedMapKeyValueStoreService::UnorderedMapKeyValueStoreService(const std::st
     : PersistableKeyValueStoreService(name)
     , logger_(logging::LoggerFactory<UnorderedMapKeyValueStoreService>::getLogger())  {
   setConfiguration(configuration);
-  initialize();
 }
 
 UnorderedMapKeyValueStoreService::~UnorderedMapKeyValueStoreService() = default;

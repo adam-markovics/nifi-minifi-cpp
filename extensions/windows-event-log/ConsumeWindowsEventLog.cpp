@@ -332,7 +332,6 @@ void ConsumeWindowsEventLog::onSchedule(const std::shared_ptr<core::ProcessConte
 bool ConsumeWindowsEventLog::commitAndSaveBookmark(const std::wstring &bookmark_xml, const std::shared_ptr<core::ProcessSession> &session) {
   {
     const TimeDiff time_diff;
-    session->commit();
     logger_->log_debug("processQueue commit took %" PRId64 " ms", time_diff());
   }
 

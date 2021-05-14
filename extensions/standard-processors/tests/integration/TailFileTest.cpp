@@ -34,7 +34,7 @@
 
 class TailFileTestHarness : public IntegrationBase {
  public:
-  TailFileTestHarness() : IntegrationBase(1000) {
+  TailFileTestHarness() : IntegrationBase(std::chrono::seconds(1)) {
     char format[] = "/tmp/ssth.XXXXXX";
     dir = testController.createTempDirectory(format);
 

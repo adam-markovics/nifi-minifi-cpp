@@ -71,7 +71,6 @@ UnorderedMapPersistableKeyValueStoreService::UnorderedMapPersistableKeyValueStor
     , UnorderedMapKeyValueStoreService(name)
     , logger_(logging::LoggerFactory<UnorderedMapPersistableKeyValueStoreService>::getLogger())  {
   setConfiguration(configuration);
-  initializeNonVirtual();
 }
 
 UnorderedMapPersistableKeyValueStoreService::~UnorderedMapPersistableKeyValueStoreService() {
@@ -133,11 +132,9 @@ bool UnorderedMapPersistableKeyValueStoreService::parseLine(const std::string& l
   return true;
 }
 
-void UnorderedMapPersistableKeyValueStoreService::initializeNonVirtual() {
+void UnorderedMapPersistableKeyValueStoreService::initialize() {
   AbstractAutoPersistingKeyValueStoreService::initialize();
-  std::set<core::Property> supportedProperties;
-  supportedProperties.insert(File);
-  updateSupportedProperties(supportedProperties);
+  updateSupportedProperties({File});
 }
 
 void UnorderedMapPersistableKeyValueStoreService::onEnable() {

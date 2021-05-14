@@ -82,7 +82,7 @@ SMART_ENUM(InitialStartPositions,
 class TailFile : public core::Processor {
  public:
   explicit TailFile(const std::string& name, const utils::Identifier& uuid = {})
-      : core::Processor(std::move(name), uuid),
+      : core::Processor(name, uuid),
         logger_(logging::LoggerFactory<TailFile>::getLogger()) {
   }
 
@@ -178,7 +178,7 @@ class TailFile : public core::Processor {
   std::string file_to_tail_;
   std::string base_dir_;
   bool recursive_lookup_ = false;
-  std::chrono::milliseconds lookup_frequency_;
+  std::chrono::milliseconds lookup_frequency_{};
   std::chrono::steady_clock::time_point last_multifile_lookup_;
   std::string rolling_filename_pattern_;
   InitialStartPositions initial_start_position_;
